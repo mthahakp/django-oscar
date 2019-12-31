@@ -29,6 +29,8 @@ class CatalogueDashboardConfig(OscarDashboardConfig):
                                              'ProductLookupView')
         self.product_create_redirect_view = get_class('dashboard.catalogue.views',
                                                       'ProductCreateRedirectView')
+        self.product_import_redirect_view = get_class('dashboard.catalogue.views',
+                                                      'ProductImportRedirectView')
         self.product_createupdate_view = get_class('dashboard.catalogue.views',
                                                    'ProductCreateUpdateView')
         self.product_delete_view = get_class('dashboard.catalogue.views',
@@ -79,6 +81,9 @@ class CatalogueDashboardConfig(OscarDashboardConfig):
             url(r'^products/create/$',
                 self.product_create_redirect_view.as_view(),
                 name='catalogue-product-create'),
+            url(r'^products/import/$',
+                self.product_import_redirect_view.as_view(),
+                name='catalogue-product-import'),
             url(r'^products/create/(?P<product_class_slug>[\w-]+)/$',
                 self.product_createupdate_view.as_view(),
                 name='catalogue-product-create'),

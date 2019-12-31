@@ -34,6 +34,9 @@
                 {% include "oscar/dashboard/partials/form_fields_inline.html" with form=productclass_form %}
                 <button class="btn btn-primary" type="submit" data-loading-text="{% trans 'Submitting...' %}"><i class="icon-plus"></i> {% trans "New Product" %}</button>
             </form>
+            <form action="{% url 'dashboard:catalogue-product-import' %}" method="get" class="form-inline">
+                <button class="btn btn-primary" type="submit" data-loading-text="{% trans 'Submitting...' %}"><i class="icon-plus"></i> {% trans "Import Products" %}</button>
+            </form>
         </div>
     {% endblock %}
 

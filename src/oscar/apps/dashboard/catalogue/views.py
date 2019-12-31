@@ -194,6 +194,18 @@ class ProductCreateRedirectView(generic.RedirectView):
             return self.get_invalid_product_class_url()
 
 
+class ProductImportRedirectView(generic.ListView):
+    template_name = 'oscar/dashboard/catalogue/product_import.html'
+    model = Product
+    context_object_name = 'product'
+
+    def get_product_import_url(self):
+        return reverse('dashboard:catalogue-product-import',)
+
+    def get_redirect_url(self, **kwargs):
+        return self.get_product_import_url()
+
+
 class ProductCreateUpdateView(generic.UpdateView):
     """
     Dashboard view that is can both create and update products of all kinds.
